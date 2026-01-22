@@ -6,7 +6,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export default function Layout({ children }) {
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const location = useLocation();
   const [darkMode] = useLocalStorage('theme_dark', true);
 
   // Sync dark mode class

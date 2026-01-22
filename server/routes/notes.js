@@ -16,6 +16,7 @@ router.get('/folders', authenticateToken, async (req, res) => {
         });
         res.json(folders);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch folders' });
     }
 });
@@ -33,6 +34,7 @@ router.post('/folders', authenticateToken, async (req, res) => {
         });
         res.json(folder);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to create folder' });
     }
 });
@@ -54,6 +56,7 @@ router.delete('/folders/:id', authenticateToken, async (req, res) => {
         });
         res.json({ success: true });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to delete folder' });
     }
 });
@@ -72,6 +75,7 @@ router.put('/folders/:id', authenticateToken, async (req, res) => {
         });
         res.json(folder);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to update folder' });
     }
 });
@@ -88,6 +92,7 @@ router.get('/notes', authenticateToken, async (req, res) => {
         });
         res.json(notes);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch notes' });
     }
 });
@@ -107,6 +112,7 @@ router.post('/notes', authenticateToken, async (req, res) => {
         });
         res.json(note);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to create note' });
     }
 });
@@ -127,6 +133,7 @@ router.put('/notes/:id', authenticateToken, async (req, res) => {
         });
         res.json(note);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to update note' });
     }
 });
@@ -140,6 +147,7 @@ router.delete('/notes/:id', authenticateToken, async (req, res) => {
         });
         res.json({ success: true });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to delete note' });
     }
 });

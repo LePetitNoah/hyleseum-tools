@@ -23,13 +23,12 @@ const PORT = process.env.PORT || 3001;
 
 // Security Middleware
 app.use(helmet({
-    crossOriginResourcePolicy: { policy: "cross-origin" } // Allow images to be loaded from other origins if needed (or same origin)
+    crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 
-// Rate Limiting
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 1000, // Limit each IP to 1000 requests per windowMs (adjusted for active usage)
+    windowMs: 15 * 60 * 1000,
+    max: 1000,
     standardHeaders: true,
     legacyHeaders: false,
 });
@@ -38,10 +37,8 @@ app.use(limiter);
 app.use(cors());
 app.use(express.json());
 
-// Static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Routes
 app.use('/auth', authRoutes);
 app.use('/tools', toolsRoutes);
 app.use('/projects', projectsRoutes);

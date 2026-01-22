@@ -14,6 +14,7 @@ router.get('/', authenticateToken, async (req, res) => {
         });
         res.json(tools);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch tools' });
     }
 });
@@ -35,6 +36,7 @@ router.post('/', authenticateToken, async (req, res) => {
         });
         res.json(newTool);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to create tool' });
     }
 });
@@ -50,6 +52,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
         });
         res.json(updatedTool);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to update tool' });
     }
 });
@@ -63,6 +66,7 @@ router.delete('/:id', authenticateToken, async (req, res) => {
         });
         res.json({ success: true });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to delete tool' });
     }
 });

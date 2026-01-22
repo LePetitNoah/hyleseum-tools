@@ -20,7 +20,7 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-const ToolCard = ({ to, icon: Icon, title, description, colorClass, iconClass, delay }) => {
+const ToolCard = ({ to, icon: Icon, title, description, colorClass, iconClass }) => {
   return (
     <motion.div variants={item} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
         <Link to={to} className="relative group overflow-hidden bg-white/70 dark:bg-slate-800/50 backdrop-blur-xl rounded-3xl p-6 border border-white/20 dark:border-white/5 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all hover:shadow-2xl hover:shadow-indigo-500/10 h-full flex flex-col">

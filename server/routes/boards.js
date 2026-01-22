@@ -16,6 +16,7 @@ router.get('/', authenticateToken, async (req, res) => {
         // Frontend expects at least one board usually.
         res.json(boards);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch boards' });
     }
 });
@@ -35,6 +36,7 @@ router.post('/', authenticateToken, async (req, res) => {
         });
         res.json(board);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to create board' });
     }
 });
@@ -69,6 +71,7 @@ router.delete('/:id', authenticateToken, async (req, res) => {
         });
         res.json({ success: true });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to delete board' });
     }
 });

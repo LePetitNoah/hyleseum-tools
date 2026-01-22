@@ -14,6 +14,7 @@ router.get('/', authenticateToken, async (req, res) => {
         });
         res.json(projects);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch projects' });
     }
 });
@@ -31,6 +32,7 @@ router.post('/', authenticateToken, async (req, res) => {
         });
         res.json(project);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to create project' });
     }
 });
@@ -49,6 +51,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
         });
         res.json(project);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to update project' });
     }
 });
@@ -62,6 +65,7 @@ router.delete('/:id', authenticateToken, async (req, res) => {
         });
         res.json({ success: true });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Failed to delete project' });
     }
 });
