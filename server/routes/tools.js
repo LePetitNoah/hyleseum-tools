@@ -1,11 +1,13 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
+import pg from 'pg';
 import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
-const prisma = new PrismaClient({
-  datasourceUrl: process.env.DATABASE_URL,
-});
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 // Get all tools for user
 router.get('/', authenticateToken, async (req, res) => {
