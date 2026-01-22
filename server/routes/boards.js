@@ -4,11 +4,7 @@ import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
 const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL,
-    },
-  },
+  datasourceUrl: process.env.DATABASE_URL,
 });
 
 // Get all boards for user
